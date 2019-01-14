@@ -3,12 +3,11 @@ var stackOfMachines = [];
 
 class StateMachine {
 	constructor(machineDescription) {
-		for(var key in machineDescription) {
-			this[key] = machineDescription[key];
-		}
-		// rename 'initialState' to 'state'
-		this.state = this.initialState;
-		delete this.initialState;
+		this.state = machineDescription.initialState;
+		this.id = machineDescription.id;
+		this.context = machineDescription.context;
+		this.states = machineDescription.states;
+		this.actions = machineDescription.actions;
 	}
 
 	// onAction - либо onEntry, либо onExit, либо дейтвие при транзакции
